@@ -24,7 +24,7 @@ This project was created to revive XianHaiC's 'VoiceBot' from 2017. I have not o
  
  ## Setup
     sudo apt update
-    sudo apt install libtool autoconf
+    sudo apt install libtool autoconf ffmpeg
     npm install
 
  
