@@ -48,8 +48,20 @@ const client = new Silver({
     disabledEvents: ['GUILD_EMOJIS_UPDATE', 'TYPING_START', 'TYPING_STOP', 'CHANNEL_PINS_UPDATE', 'EMOJICREATE', 'EMOJIDELETE', 'EMOJIUPDATE', 'USER_NOTE_UPDATE'], // Some useless events to disable to help reduce lag.
 });
 
+function createFolders() {
+    let dirs = ['recordings'];
+    for (let dir of dirs) {
+        fs.mkdir('./' + dir, { recursive: true }, (err) => {
+            if (err) throw err;
+        });
+    }
+};
+
 const init = () => {
     client.login(discord_token);
+
+    createFolders();
+
     require('./modules/eventloader')(client);
 };
 
